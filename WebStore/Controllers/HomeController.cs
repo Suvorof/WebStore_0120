@@ -19,7 +19,8 @@ namespace WebStore
                 FirstName = "Иван",
                 SurName = "Иванов",
                 Patronymic = "Иванович",
-                Age = 22
+                Age = 22,
+                Position = "Academic"
             },
             new EmployeeView
             {
@@ -27,7 +28,8 @@ namespace WebStore
                 FirstName = "Antony",
                 SurName = "Egorov",
                 Patronymic = "Eduardovich",
-                Age = 32
+                Age = 32,
+                Position = "WatchMaker"
             }
         };
 
@@ -37,7 +39,21 @@ namespace WebStore
         public IActionResult Index()
         {
             return View(_employees);
-            return Content("Hello from controller");
+            //return Content("Hello from controller");
         }
+
+        // GET: /home/details/{id}
+        // GET: /home/details/1
+        // GET: /home/details/2
+        public IActionResult Details(int id)
+        {
+            // Нам нужен тот сотрудник,id которого совпадает с тем id, который мы передали
+            var employee = _employees.FirstOrDefault(x => x.Id == id);
+            //Если такого не существует
+            if (employee == null)
+                return NotFound(); //возвращаем результат 404 Not Found
+            return View(employee);
+        }
+
     }
 }
