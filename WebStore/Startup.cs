@@ -36,6 +36,8 @@ namespace WebStore
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStaticFiles();
+
             var helloMsg = _configuration["CustomHelloWorld"];
             var logLevel = _configuration["Logging:LogLevel:Microsoft"];
 
