@@ -9,7 +9,7 @@ using WebStore.Models;
 
 namespace WebStore
 {
-    public class HomeController : Controller
+    public class EmployeeController : Controller
     {
         private readonly List<EmployeeView> _employees = new List<EmployeeView>
         {

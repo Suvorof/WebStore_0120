@@ -1,0 +1,18 @@
+﻿@model IEnumerable<ASP.NET_Home_work_1.Models.WatchView>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table>
+    @foreach(var item in Model)
+    { <tr>
+          <td>@item.LabelName</td>
+          <td>@item.BeatPerHour</td>
+          <td>@item.CaseMaterial</td>
+          <td>@item.Sex</td>
+          <td>
+              @Html.ActionLink("Детали", "Details",new {id = item.Id})
+          </td>
+      </tr>
+    }
+</table>

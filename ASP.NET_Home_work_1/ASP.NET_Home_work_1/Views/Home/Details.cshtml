@@ -1,0 +1,47 @@
+﻿@model ASP.NET_Home_work_1.Models.WatchView
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+@Html.ActionLink("<== Назад к списку часов", "Index")
+<table>
+    <tr>
+        <td>Id:</td>
+        <td>@Model.Id</td>
+    </tr>
+    <tr>
+        <td>Марка:</td>
+        <td>@Model.LabelName</td>
+    </tr>
+    <tr>
+        <td>Ударов в час:</td>
+        <td>@Model.BeatPerHour</td>
+    </tr>
+    <tr>
+        <td>Материал Корпуса:</td>
+        <td>@Model.CaseMaterial</td>
+    </tr>
+    <tr>
+        <td>Пол:</td>
+        <td>@Model.Sex</td>
+    </tr>
+    <tr>
+        <td>Количество стрелок:</td>
+        <td>@Model.NumberOfHands</td>
+    </tr>
+    <tr>
+        <td>Тип механизма:</td>
+        <td>@Model.TypeOfMechanism</td>
+    </tr>
+    <tr>
+        <td>Водозащита:</td>
+        <td>@Model.WaterResist</td>
+    </tr>
+    <tr>
+        <td>Цена:</td>
+        <td>@Model.Price</td>
+    </tr>
+</table>
+@Html.ActionLink("Следующие часы", "Details", new { id = Model.Id + 1})
