@@ -26,7 +26,12 @@ namespace WebStore
         public void ConfigureServices(IServiceCollection services)
         {
             //Добавляем сервисы, необходимые для mvc
-            services.AddMvc();
+            services.AddMvc(options =>
+            {
+                options.Filters.Add(typeof(SimpleActionFilter)); //подключение по типу
+                // альтернативный вариант подключения
+                //options.Filters.Add(new SimpleActionFilter()); // подключение по объекту
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

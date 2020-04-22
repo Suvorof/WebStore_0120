@@ -50,6 +50,7 @@ namespace WebStore
         // GET: /home/details/1
         // GET: /home/details/2
         [Route("{id}")] // id взят в {}, чтобы он прибиндился к id в параметре метода Details
+        // ~/users/1111
         public IActionResult Details(int id)
         {
             // Нам нужен тот сотрудник,id которого совпадает с тем id, который мы передали
