@@ -9,6 +9,9 @@ using WebStore.Models;
 
 namespace WebStore
 {
+    //до ~/employee
+    [Route("users")]
+    //после ~/users
     public class EmployeeController : Controller
     {
         private readonly List<EmployeeView> _employees = new List<EmployeeView>
@@ -36,6 +39,7 @@ namespace WebStore
         // GET:
         // GET: /home/
         // GET: /home/index
+        [Route("all")]
         public IActionResult Index()
         {
             return View(_employees);
@@ -45,6 +49,7 @@ namespace WebStore
         // GET: /home/details/{id}
         // GET: /home/details/1
         // GET: /home/details/2
+        [Route("{id}")] // id взят в {}, чтобы он прибиндился к id в параметре метода Details
         public IActionResult Details(int id)
         {
             // Нам нужен тот сотрудник,id которого совпадает с тем id, который мы передали
