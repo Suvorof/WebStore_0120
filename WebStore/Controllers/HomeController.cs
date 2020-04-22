@@ -10,6 +10,16 @@ namespace WebStore.Controllers
     {
         public IActionResult Index()
         {
+            //throw new ApplicationException("Ошибочка вышла...");
+            //return Content("Hello from controller");
+            //return new EmptyResult();
+            //return new FileContentResult();
+            //return new NotFoundResult();
+            //return new JsonResult("");
+            //return PartialView("Cart");
+            //return RedirectToAction("Blog");
+            //return Redirect("https://google.com");
+            //return StatusCode(500);
             return View();
         }
 
