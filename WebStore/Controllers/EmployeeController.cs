@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using WebStore.Infrastructure.Interfaces;
 using WebStore.Models;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -14,27 +16,15 @@ namespace WebStore
     //после ~/users
     public class EmployeeController : Controller
     {
-        private readonly List<EmployeeView> _employees = new List<EmployeeView>
+        private readonly IEmployeesService _employeesService;
+
+        // Этой строчкой мы внедряем зависимость, т.е используем механизм внедрения зависимостей depandancy injection
+        // при этом мы не обращаемся к контроллеру т.е. не создаём экземпляр его класса это за нас делает механизм
+        // depandancy injection, который находится под капотом Asp.Net Core и в этом и есть вся красота и элегантность
+        public EmployeeController(IEmployeesService employeesService)
         {
-            new EmployeeView
-            {
-                Id = 1,
-                FirstName = "Иван",
-                SurName = "Иванов",
-                Patronymic = "Иванович",
-                Age = 22,
-                Position = "Academic"
-            },
-            new EmployeeView
-            {
-                Id = 2,
-                FirstName = "Antony",
-                SurName = "Egorov",
-                Patronymic = "Eduardovich",
-                Age = 32,
-                Position = "WatchMaker"
-            }
-        };
+            _employeesService = employeesService;
+        }
 
         // GET:
         // GET: /home/
@@ -42,7 +32,7 @@ namespace WebStore
         [Route("all")]
         public IActionResult Index()
         {
-            return View(_employees);
+            return View(_employeesService.GetAll());
             //return Content("Hello from controller");
         }
 
@@ -54,7 +44,7 @@ namespace WebStore
         public IActionResult Details(int id)
         {
             // Нам нужен тот сотрудник,id которого совпадает с тем id, который мы передали
-            var employee = _employees.FirstOrDefault(x => x.Id == id);
+            var employee = _employeesService.GetById(id);
             //Если такого не существует
             if (employee == null)
                 return NotFound(); //возвращаем результат 404 Not Found

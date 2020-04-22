@@ -9,6 +9,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WebStore.Infrastructure;
+using WebStore.Infrastructure.Implementation;
+using WebStore.Infrastructure.Interfaces;
 
 namespace WebStore
 {
@@ -32,6 +34,16 @@ namespace WebStore
                 // альтернативный вариант подключени€
                 //options.Filters.Add(new SimpleActionFilter()); // подключение по объекту
             });
+
+            // ƒобавл€ем разрешение зависимости.“.е. каждый раз когда мы встречаем IEmployeesService экз-р в коде, мы возвращаем
+            // экз-р InMemoryEmployeesService. —ервис добавлен как SingleTon т.е. создаЄтс€ один экземпл€р InMemoryEmployeesService
+            // на всЄ приложение и пересоздаватьс€ этот экземпл€р не будет в течении жизни экземпл€ра.
+            // Transient означает, что экземпл€р InMemoryEmployeesService будет пересоздаватьс€ каждый раз когда к нему идЄт обращение
+            // Scoped означает, что будет создаватьс€ один экземпл€р на один http запрос
+            services.AddSingleton<IEmployeesService, InMemoryEmployeesService>();
+            //services.AddTransient<IEmployeesService, InMemoryEmployeesService>();
+            //services.AddScoped<IEmployeesService, InMemoryEmployeesService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
