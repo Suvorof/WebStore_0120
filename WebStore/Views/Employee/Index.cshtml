@@ -5,9 +5,7 @@
     ViewData["Title"] = "Index";
 }
 
-
-<div class="container
-     ">
+<a asp-action="Edit" class="btn btn-success">Добавить</a>
     <table>
         @foreach (var item in Model)
         {
@@ -25,4 +23,3 @@
             </tr>
         }
     </table>
-</div>
