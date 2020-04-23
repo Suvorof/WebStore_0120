@@ -63,6 +63,7 @@ namespace WebStore
 
             return View(model);
         }
+
         [HttpPost]
         [Route("edit/{id?}")]
         public IActionResult Edit(EmployeeView model)
@@ -85,6 +86,13 @@ namespace WebStore
                 _employeesService.AddNew(model);
             }
             _employeesService.Commit(); // станет актуальным позднее (когда добавим БД)
+            return RedirectToAction(nameof(Index));
+        }
+
+        [Route("delete/{id}")] // id без ? так как его присутствие обязательно.
+        public IActionResult Delete(int id)
+        {
+            _employeesService.Delete(id);
             return RedirectToAction(nameof(Index));
         }
 

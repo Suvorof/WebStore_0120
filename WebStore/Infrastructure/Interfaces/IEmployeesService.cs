@@ -18,7 +18,7 @@ namespace WebStore.Infrastructure.Interfaces
        IEnumerable<EmployeeView> GetAll();
 
        /// <summary>
-       /// Получение списка сотрудника по id
+       /// Получение сотрудника по id
        /// </summary>
        /// <returns></returns>
        EmployeeView GetById(int id);
