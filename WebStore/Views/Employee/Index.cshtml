@@ -12,6 +12,7 @@
         @foreach (var item in Model)
         {
             <tr>
+                <td><a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-edit"></i></a></td>
                 <td>@item.SurName</td>
                 <td>@item.FirstName</td>
                 <td>@item.Patronymic</td>
@@ -19,7 +20,7 @@
                         <a asp-action="details" asp-route-id="@item.id">детали</a>
                     </td>*@
                 <td>
-                    @Html.ActionLink("Детали", "Details", new { id = item.Id })
+                    @Html.ActionLink("Детали", "Details", new {id = item.Id})
                 </td>
             </tr>
         }

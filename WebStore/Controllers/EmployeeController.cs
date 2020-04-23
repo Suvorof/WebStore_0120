@@ -50,6 +50,43 @@ namespace WebStore
                 return NotFound(); //возвращаем результат 404 Not Found
             return View(employee);
         }
+        [HttpGet]
+        [Route("edit/{id}")]
+        public IActionResult Edit(int? id)
+        {
+            if (!id.HasValue)
+                return View(new EmployeeView());
+
+            EmployeeView model = _employeesService.GetById(id.Value);
+            if (model == null)
+                return NotFound(); // возвращаем результат 404 Not Found
+
+            return View(model);
+        }
+        [HttpPost]
+        [Route("edit/{id}")]
+        public IActionResult Edit(EmployeeView model)
+        {
+            if (model.Id > 0) // если есть Id, то редактируем модель
+            {
+                var dbItem = _employeesService.GetById(model.Id);
+
+                if (ReferenceEquals(dbItem, null))
+                    return NotFound(); //возвращаем результат 404 Not Found
+
+                dbItem.SurName = model.SurName;
+                dbItem.FirstName = model.FirstName;
+                dbItem.Age = model.Age;
+                dbItem.Patronymic = model.Patronymic;
+                dbItem.Patronymic = model.Patronymic;
+            }
+            else // иначе добавляем модель в список
+            {
+                _employeesService.AddNew(model);
+            }
+            _employeesService.Commit(); // станет актуальным позднее (когда добавим БД)
+            return RedirectToAction(nameof(Index));
+        }
 
     }
 }
