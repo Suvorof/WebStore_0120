@@ -88,5 +88,12 @@ namespace WebStore
             return RedirectToAction(nameof(Index));
         }
 
+        [Route("delete/{id}")] // id без ? так как его присутствие обязательно.
+        public IActionResult Delete(int id)
+        {
+            _employeesService.Delete(id);
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 }
