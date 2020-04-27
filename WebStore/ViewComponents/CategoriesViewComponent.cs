@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -10,12 +11,13 @@ namespace WebStore.ViewComponents
     [ViewComponent(Name = "Cats")]
     public class CategoriesViewComponent : ViewComponent
     {
-        private readonly IProductService _productServise;
+        private readonly IProductService _productService;
 
         public CategoriesViewComponent(IProductService productService)
         {
-            _productServise = productService;
+            _productService = productService;
         }
+
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var categories = GetCategories();
@@ -25,7 +27,7 @@ namespace WebStore.ViewComponents
 
         private List<CategoryViewModel> GetCategories()
         {
-            var categories = _productServise.GetCategories();
+            var categories = _productService.GetCategories();
 
             var parentSections = categories.Where(p => !p.ParentId.HasValue).ToArray();
             var parentCategories = new List<CategoryViewModel>();
@@ -57,8 +59,10 @@ namespace WebStore.ViewComponents
                 }
                 CategoryViewModel.ChildCategories = CategoryViewModel.ChildCategories.OrderBy(c => c.Order).ToList();
             }
+
             parentCategories = parentCategories.OrderBy(c => c.Order).ToList();
             return parentCategories;
+
         }
     }
 }
