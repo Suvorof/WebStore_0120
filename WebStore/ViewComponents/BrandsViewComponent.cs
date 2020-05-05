@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WebStore.Domain.FIlters;
+using WebStore.DomainNew.Filters;
 using WebStore.Infrastructure.Interfaces;
 using WebStore.Models;
 

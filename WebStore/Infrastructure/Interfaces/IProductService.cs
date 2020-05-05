@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using WebStore.Domain.Entities;
-using WebStore.Domain.Entities.Base;
-using WebStore.Domain.FIlters;
+using WebStore.DomainNew.Entities;
+using WebStore.DomainNew.Filters;
 
 namespace WebStore.Infrastructure.Interfaces
 {
