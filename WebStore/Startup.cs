@@ -46,7 +46,7 @@ namespace WebStore
             // Transient означает, что экземпл€р InMemoryEmployeesService будет пересоздаватьс€ каждый раз когда к нему идЄт обращение
             // Scoped означает, что будет создаватьс€ один экземпл€р на один http запрос
             services.AddSingleton<IEmployeesService, InMemoryEmployeesService>();
-            services.AddSingleton<IProductService, InMemoryProductService>();
+            services.AddScoped<IProductService, SqlProductService>();
             //services.AddTransient<IEmployeesService, InMemoryEmployeesService>();
             //services.AddScoped<IEmployeesService, InMemoryEmployeesService>();
 
