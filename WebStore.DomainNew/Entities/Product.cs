@@ -12,6 +12,7 @@ namespace WebStore.DomainNew.Entities
         public int? BrandId { get; set; }
         public string ImageUrl { get; set; }
         public decimal Price { get; set; }
+        public string SerialNumber { get; set; }
 
         [ForeignKey("CategoryId")] // не обязательно EF итак может это понять
         public virtual Category Category { get; set; }
