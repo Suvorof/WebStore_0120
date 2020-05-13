@@ -53,11 +53,8 @@ namespace WebStore.Controllers
         public IActionResult ContactUs()
         {
             return View();
+
         }
 
-        public IActionResult Login()
-        {
-            return View();
-        }
     }
 }
