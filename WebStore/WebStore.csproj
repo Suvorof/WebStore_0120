@@ -5,6 +5,42 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\images\shop\bg_border.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\shop\gallery1.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\shop\gallery2.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\shop\gallery3.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\shop\gallery4.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\shop\girl1.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\shop\girl2.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\shop\girl3.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\shop\iframe1.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\shop\iframe2.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\shop\iframe3.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\shop\iframe4.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\shop\logo.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\shop\map.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\shop\new.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\shop\partner1.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\shop\partner2.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\shop\partner3.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\shop\partner4.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\shop\pricing.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\shop\product1.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\shop\product2.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\shop\product3.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\shop\product4.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\shop\product5.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\shop\product6.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\shop\recommend1.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\shop\recommend2.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\shop\recommend3.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\shop\sale.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\shop\searchicon.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\shop\shipping.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BuildBundlerMinifier" Version="3.2.435" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.3" />
@@ -21,6 +57,37 @@
   <ItemGroup>
     <ProjectReference Include="..\WebStore.DAL\WebStore.DAL.csproj" />
     <ProjectReference Include="..\WebStore.DomainNew\WebStore.DomainNew.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\images\shop\advertisement.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\images\shop\product10.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\images\shop\product11.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\images\shop\product12.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\images\shop\product7.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\images\shop\product8.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\images\shop\product9.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>
