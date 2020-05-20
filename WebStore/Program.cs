@@ -25,8 +25,10 @@ namespace WebStore
                 {
                     WebStoreContext context = services.GetRequiredService<WebStoreContext>();
                     DbInitializer.Initialize(context);
+                    DbInitializer.InitializeUsers(services);
+
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     var logger = services.GetRequiredService<ILogger<Program>>();
                     logger.LogError(ex, "Oops. Something went wrong at DB initializing...");
