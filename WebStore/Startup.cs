@@ -14,6 +14,7 @@ using WebStore.DAL;
 using WebStore.DomainNew.Entities;
 using WebStore.Infrastructure;
 using WebStore.Infrastructure.Implementation;
+using WebStore.Infrastructure.Implementations;
 using WebStore.Infrastructure.Interfaces;
 
 namespace WebStore
@@ -49,6 +50,7 @@ namespace WebStore
             // Scoped означает, что будет создаватьс€ один экземпл€р на один http запрос
             services.AddSingleton<IEmployeesService, InMemoryEmployeesService>();
             services.AddScoped<IProductService, SqlProductService>();
+            services.AddScoped<IOrdersService, SqlOrdersService>();
             //services.AddTransient<IEmployeesService, InMemoryEmployeesService>();
             //services.AddScoped<IEmployeesService, InMemoryEmployeesService>();
 
