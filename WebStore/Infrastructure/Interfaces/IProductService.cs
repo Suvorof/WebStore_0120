@@ -16,5 +16,11 @@ namespace WebStore.Infrastructure.Interfaces
         /// <param name="id">Идентификатор</param>
         /// <returns>Сущность Product, если нашел, иначе null</returns>
         Product GetProductById(int id);
+
+        /// <summary>
+        /// Удалить товар с конкретным id
+        /// </summary>
+        /// <param name="id"></param>
+        void Delete(int id);
     }
 }

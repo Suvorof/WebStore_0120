@@ -31,5 +31,11 @@ namespace WebStore.Areas.Admin.Controllers
             return View(_productData.GetProducts(new ProductFilter()));
         }
 
+        public IActionResult Delete(int id)
+        {
+            _productData.Delete(id);
+            return RedirectToAction(nameof(ProductList));
+        }
+
     }
 }

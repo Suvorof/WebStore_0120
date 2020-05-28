@@ -49,5 +49,16 @@ namespace WebStore.Infrastructure.Implementation
                 .Include(p => p.Brand) // жадная загрузка (Eager Load) для брендов 
                 .FirstOrDefault(p => p.Id == id);
         }
+
+        /// <summary>
+        /// Удалить товар с конкретным id
+        /// </summary>
+        /// <param name="id"></param>
+       public void Delete(int id)
+        {
+            var product = GetProductById(id);
+            _context.Products.Remove(product);
+            _context.SaveChanges();
+        }
     }
 }

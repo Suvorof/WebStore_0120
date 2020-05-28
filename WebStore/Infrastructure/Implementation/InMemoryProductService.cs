@@ -427,5 +427,14 @@ namespace WebStore.Infrastructure.Implementation
         {
             return _products.FirstOrDefault(p => p.Id == id);
         }
+
+        public void Delete(int id)
+        {
+            var product = GetProductById(id);
+            if (product != null)
+            {
+                _products.Remove(product);
+            }
+        }
     }
 }
